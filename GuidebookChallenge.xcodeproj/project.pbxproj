@@ -9,19 +9,18 @@
 /* Begin PBXBuildFile section */
 		EE304BA12682DF450025E463 /* GuidebookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE304BA02682DF450025E463 /* GuidebookTableViewController.swift */; };
 		EE304BA52682ED150025E463 /* GuidebookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE304BA42682ED150025E463 /* GuidebookTableViewCell.swift */; };
-		EE304BA726841D520025E463 /* GuidesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE304BA626841D520025E463 /* GuidesList.swift */; };
 		EE989235268128D70044FC04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE989234268128D70044FC04 /* AppDelegate.swift */; };
 		EE989237268128D70044FC04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE989236268128D70044FC04 /* SceneDelegate.swift */; };
 		EE98923C268128D70044FC04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE98923A268128D70044FC04 /* Main.storyboard */; };
 		EE98923E268128D80044FC04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE98923D268128D80044FC04 /* Assets.xcassets */; };
 		EE989241268128D80044FC04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE98923F268128D80044FC04 /* LaunchScreen.storyboard */; };
 		EE98924A268282C20044FC04 /* Guide.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE989249268282C20044FC04 /* Guide.swift */; };
+		EEDA74FD268FC6EE00908674 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDA74FC268FC6EE00908674 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EE304BA02682DF450025E463 /* GuidebookTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidebookTableViewController.swift; sourceTree = "<group>"; };
 		EE304BA42682ED150025E463 /* GuidebookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidebookTableViewCell.swift; sourceTree = "<group>"; };
-		EE304BA626841D520025E463 /* GuidesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidesList.swift; sourceTree = "<group>"; };
 		EE989231268128D70044FC04 /* GuidebookChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuidebookChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE989234268128D70044FC04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE989236268128D70044FC04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +29,7 @@
 		EE989240268128D80044FC04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE989242268128D80044FC04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE989249268282C20044FC04 /* Guide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guide.swift; sourceTree = "<group>"; };
+		EEDA74FC268FC6EE00908674 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +47,7 @@
 			isa = PBXGroup;
 			children = (
 				EE989249268282C20044FC04 /* Guide.swift */,
-				EE304BA626841D520025E463 /* GuidesList.swift */,
+				EEDA74FC268FC6EE00908674 /* NetworkService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -56,7 +56,6 @@
 			isa = PBXGroup;
 			children = (
 				EE304BA02682DF450025E463 /* GuidebookTableViewController.swift */,
-				EE304BA42682ED150025E463 /* GuidebookTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -80,6 +79,7 @@
 		EE989233268128D70044FC04 /* GuidebookChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				EEDA74FB268FC6D100908674 /* Views */,
 				EE304B9E2682C1FC0025E463 /* ViewControllers */,
 				EE304B9D2682C1F10025E463 /* Models */,
 				EE989242268128D80044FC04 /* Info.plist */,
@@ -98,6 +98,14 @@
 				EE98923F268128D80044FC04 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EEDA74FB268FC6D100908674 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EE304BA42682ED150025E463 /* GuidebookTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,11 +178,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE304BA726841D520025E463 /* GuidesList.swift in Sources */,
 				EE304BA52682ED150025E463 /* GuidebookTableViewCell.swift in Sources */,
 				EE98924A268282C20044FC04 /* Guide.swift in Sources */,
 				EE304BA12682DF450025E463 /* GuidebookTableViewController.swift in Sources */,
 				EE989235268128D70044FC04 /* AppDelegate.swift in Sources */,
+				EEDA74FD268FC6EE00908674 /* NetworkService.swift in Sources */,
 				EE989237268128D70044FC04 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

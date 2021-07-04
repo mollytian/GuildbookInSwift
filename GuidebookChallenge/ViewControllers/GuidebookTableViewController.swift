@@ -20,15 +20,26 @@ class GuidebookTableViewController: UITableViewController {
     fileprivate struct Storyboard {
         static let guideCellIdentifier = "GuidebookItem"
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = tableView.rowHeight
         
-        let urlString = "https://www.guidebook.com/service/v2/upcomingGuides/"
-        let url = URL(string: urlString)
-        fetchGuidebookData(with: url!)
+        let networkService = NetworkService()
+        networkService.fetchGuides() { result in
+            switch result {
+            case .failure( let error):
+                print(error)
+            case .success(let guides):
+                self.ungroupedGuides = guides
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.tableView.rowHeight = UITableView.automaticDimension
+                    self.tableView.estimatedRowHeight = self.tableView.rowHeight
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -57,26 +68,6 @@ class GuidebookTableViewController: UITableViewController {
     }
 
     // MARK: - Other functions
-    func fetchGuidebookData(with url: URL) {
-        let session = URLSession.shared
-        let task = session.dataTask(with: url) { [weak self] (data, response, error) in
-            if let error = error {
-                print("JSON Error: \(error)")
-                return
-            }
-            if let jsonData = data {
-                print("JSON Data got.")
-                let resultArray: ResultArray = try! JSONDecoder().decode(ResultArray.self, from: jsonData)
-                self!.ungroupedGuides = resultArray.guides
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                    self?.tableView.rowHeight = UITableView.automaticDimension
-                    self?.tableView.estimatedRowHeight = (self?.tableView.rowHeight)!
-                }
-            }
-        }
-        task.resume()
-    }
     
     func mapGuides() {
         for guide in ungroupedGuides {
@@ -109,5 +100,6 @@ class GuidebookTableViewController: UITableViewController {
         return dateStr
     }
 }
+
 
 
